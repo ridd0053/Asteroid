@@ -5,19 +5,3 @@ on:
     branches:
     - feature_branch_pipeline
 
-jobs:
-  build:
-  steps:
-      script:
-      - echo "Building"
-      - mkdir build
-      - touch build/info.txt
-
-      artifacts:
-        paths:
-         - build/
-  test:
-  steps:
-     script:
-      - echo "Testing"
-      - test -f "build/info.txt"
