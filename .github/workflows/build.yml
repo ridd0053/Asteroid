@@ -4,14 +4,10 @@ on:
   push:
     branches:
     - feature_branch_pipeline
-stages:
-  - build
-  - test
 
 jobs:
   build:
-    stage: build
-     script:
+      script:
       - echo "Building"
       - mkdir build
       - touch build/info.txt
@@ -20,7 +16,6 @@ jobs:
         paths:
          - build/
   test:
-    stage: test
-    script:
+     script:
       - echo "Testing"
       - test -f "build/info.txt"
