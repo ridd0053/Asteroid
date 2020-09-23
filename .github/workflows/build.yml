@@ -6,6 +6,7 @@ on:
     - feature_branch_pipeline
 stages:
   - build
+  - test
 build:
   stage: build
   script:
