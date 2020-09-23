@@ -1,0 +1,12 @@
+Name: Build
+
+on:
+  push:
+    branches:
+    - feature_branch_pipeline
+stages:
+  - build
+build:
+  stage: build
+  script:
+    - echo "Building"
