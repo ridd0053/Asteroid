@@ -1,7 +1,7 @@
 name: Java CI
 
 on:
-  push:
+  commit:
     branches:
     - feature_branch_pipeline
 jobs:
