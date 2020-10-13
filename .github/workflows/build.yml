@@ -1,16 +1,19 @@
-name: Java CI
+name: Mirror and run GitLab CI
 
-on:
-  push:
-    branches:
-    - feature_branch_pipeline
+on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
+    - uses: actions/checkout@v1
+    - name: Mirror + trigger CI
+      uses: ridd0053/Asteroid@master
+      with:
+        args: "https://gitlab.com/ridd0053/Asteroid"
+      env:
+        GITLAB_HOSTNAME: "gitlab.com"
+        GITLAB_USERNAME: "svboxel"
+        GITLAB_PASSWORD: ${{ secrets.GITLAB_PASSWORD }} 
+        GITLAB_PROJECT_ID: "<GitLab project ID>"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
