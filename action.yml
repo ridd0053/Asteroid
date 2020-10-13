@@ -16,4 +16,5 @@ inputs:
   debug:
     description: 'debug mode'
 runs:
-    runs-on: ubuntu-latest
+  using: 'docker'
+  image: 'Dockerfile'
