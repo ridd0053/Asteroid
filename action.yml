@@ -17,4 +17,4 @@ inputs:
     description: 'debug mode'
 runs:
   using: 'node12'
-  main: 'app/src/main/AndroidManifest.xml'
+  main: 'app/src/main/java/james/asteroid/views/GameView.java'
