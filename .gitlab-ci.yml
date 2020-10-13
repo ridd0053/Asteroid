@@ -1,3 +1,6 @@
+name: gitlab job
+on: [push]
+
 image: openjdk:8-jdk
 
 variables:
