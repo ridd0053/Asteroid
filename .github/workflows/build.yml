@@ -10,7 +10,7 @@ jobs:
     - name: Mirror + trigger CI
       uses: ./
       with:
-        args: "https://gitlab.com/ridd0053/Asteroid"
+        args: "https://gitlab.com/<namespace>/<repository>"
       env:
         GITLAB_HOSTNAME: "gitlab.com"
         GITLAB_USERNAME: "ridd0053"
