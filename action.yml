@@ -16,5 +16,5 @@ inputs:
   debug:
     description: 'debug mode'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'node12'
+  main: 'app/src/main/AndroidManifest.xml'
