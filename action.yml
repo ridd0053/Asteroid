@@ -15,4 +15,5 @@ inputs:
     required: true
   debug:
     description: 'debug mode'
-runs-on: ubuntu-latest
+runs:
+    runs-on: ubuntu-latest
