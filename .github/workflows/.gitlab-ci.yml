@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: trigger Job
-      uses: Asteroid/gitlab-ci-action@master
+      uses: asteroid/gitlab-ci-action@master
       with:
         url: "http://example.com"
         token: ${{ secrets.TOKEN }}
