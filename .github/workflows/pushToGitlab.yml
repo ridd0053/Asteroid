@@ -1,9 +1,8 @@
 steps:
   - name: Checkout code
     uses: actions/checkout@v2
-- name: Cmd.exe "multiline"
-  shell: cmd
-  run: >-
+  - name: push changes to remote
+    run: >-
     git add **\<pathspec\>** 
     git commit -m "commit message"
     git push https://gitlab.com/ridd0053/Asteroid.git
