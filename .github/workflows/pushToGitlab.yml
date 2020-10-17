@@ -1,0 +1,10 @@
+- name: update file and push to remote
+        run: |
+          echo "Test push commit to the remote in the workflow" >> testFromActions.txt
+
+         git config --global user.name "user mane"
+         git config --global user.email "user email"
+
+          git add -A
+          git commit -m "Update test.txt"
+          git push https://gitlab.com/ridd0053/Asteroid.git
