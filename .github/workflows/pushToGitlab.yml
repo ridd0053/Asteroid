@@ -2,11 +2,8 @@ steps:
   - name: Checkout code
     uses: actions/checkout@v2
 
-  - name: Modify/add files
-    . . .
-
-  - name: push changes to remote
-  run: |
+   - name: push changes to remote
+    run: |
     git config --global user.name "user mane"
     git config --global user.email "user email"
 
