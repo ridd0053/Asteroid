@@ -3,9 +3,6 @@ steps:
     uses: actions/checkout@v2
   - name: push changes to remote
     run: |
-    git config --global user.name "user mane"
-    git config --global user.email "user email"
-
     git add **\<pathspec\>** 
     git commit -m "commit message"
-    git push
+    git push https://gitlab.com/ridd0053/Asteroid.git
