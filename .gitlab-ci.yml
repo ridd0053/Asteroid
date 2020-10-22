@@ -37,10 +37,16 @@ assembleDebug:
   artifacts:
     paths:
     - app/build/outputs/
-    reports:
-      junit: build/test-results/test/**/TEST-*.xml
 
 debugTests:
   stage: test
   script:
     - ./gradlew -Pci --console=plain :app:testDebug
+JunitTests:
+  stage: test
+  script:
+    - gradle test
+    artifacts:
+      when: always
+      reports:
+        junit: build/test-results/test/**/TEST-*.xml
