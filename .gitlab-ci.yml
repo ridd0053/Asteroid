@@ -37,6 +37,8 @@ assembleDebug:
   artifacts:
     paths:
     - app/build/outputs/
+    reports:
+      junit: build/test-results/test/**/TEST-*.xml
 
 debugTests:
   stage: test
