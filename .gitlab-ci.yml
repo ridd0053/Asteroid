@@ -24,6 +24,7 @@ before_script:
 stages:
   - build
   - test
+  - visualize
 
 lintDebug:
   stage: build
