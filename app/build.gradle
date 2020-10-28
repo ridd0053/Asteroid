@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.github.triplet.play'
+apply plugin: 'jacoco'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.2'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         applicationId "james.asteroid"
@@ -17,6 +18,7 @@ android {
 
     signingConfigs {
         release
+
     }
 
     buildTypes {
@@ -24,6 +26,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+        }
+        debug {
+            testCoverageEnabled = true
+        }
+
+    }
+    project.gradle.taskGraph.whenReady {
+        connectedDebugAndroidTest {
+            ignoreFailures = true
         }
     }
 
@@ -78,3 +89,41 @@ dependencies {
     testImplementation 'com.google.truth:truth:1.1'
     androidTestImplementation 'com.google.truth:truth:1.1'
 }
+jacoco {
+    version '0.8.5'
+}
+
+
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+    def execData = subprojects.collect { files("${it.buildDir}/jacoco/testDebugUnitTest.exec") }
+    executionData execData
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+    def fileFilter = ['**/R.class',
+                      '**/R$*.class',
+                      '**/BuildConfig.*',
+                      '**/Manifest*.*',
+                      '**/*Test*.*',
+                      'android/**/*.*',
+                      '**/data/models/*']
+    def debugTree = fileTree(dir: "${project.buildDir}/intermediates/javac/debug/classes", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+
+     sourceDirectories.from = files([mainSrc])
+     classDirectories.from = files([debugTree])
+    executionData.from = fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/*coverage.ec"
+    ])
+
+
+}
+
+
+
+
