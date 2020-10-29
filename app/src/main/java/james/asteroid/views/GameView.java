@@ -92,6 +92,10 @@ public class GameView extends SurfaceView implements Runnable, View.OnTouchListe
         int colorPrimary = ContextCompat.getColor(getContext(), R.color.colorPrimary);
         int colorAccent = ContextCompat.getColor(getContext(), R.color.colorAccent);
 
+
+
+
+
         paint = new Paint();
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.FILL);
@@ -127,9 +131,13 @@ public class GameView extends SurfaceView implements Runnable, View.OnTouchListe
         boxes = new ArrayList<>();
     }
 
+
     public void setListener(GameListener listener) {
         this.listener = listener;
     }
+
+
+
 
     @Override
     public void run() {
@@ -541,5 +549,6 @@ public class GameView extends SurfaceView implements Runnable, View.OnTouchListe
         void onOutOfAmmo();
 
         void onAsteroidHit(int score);
+
     }
 }
